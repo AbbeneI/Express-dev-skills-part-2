@@ -1,0 +1,38 @@
+<%- include('../partials/header') %>
+
+<%for(const property in skill){ %>
+    
+    <strong> <%= property.toUpperCase() %> </br>  </strong> <%= skill[property] %> 
+    </br>
+</br>
+    <% } %>
+</br>
+
+
+
+
+
+Editing Skill Name
+
+<form action="/skills/<%= skill.id %>/edit?_method=PUT" method="POST" autocomplete="off">
+    <input type="text" name="name" value="<%= skill.name %>">
+
+</br>
+</br> 
+<!-- Bootstrap checkbox  -->
+    <input style="border:1px solid black;"class="form-check-input" type="checkbox" id="flexCheckDefault" name="essential">
+    <label class="form-check-label" for="flexCheckDefault">
+      Essential?
+    </label>
+ <!-- Bootstrap checkbox  -->
+
+ </br>
+</br>
+    <button type="submit">Edit skill</button>
+</form> 
+
+
+
+
+
+<%- include('../partials/footer') %>

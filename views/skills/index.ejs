@@ -1,0 +1,36 @@
+<%- include('../partials/header') %>
+
+    <h3>Skills as of <%= time %>
+    </h3>
+    <a href="/skills/new">Add Skill</a>
+</br>
+
+    <% skills.forEach(function(s) { %>
+        </br>
+
+
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title">
+                <a href="/skills/<%= s.id %>">
+                    <%= s.name %>
+                </a>
+                </h5>
+                <p class="card-text">                
+                    <%= s.essential ? 'Essential' : 'Not Essential' %>
+                </p>
+                    <div class="btn-group" style="width: 100%;" role="group" aria-label="Basic example">
+                        <form action="/skills/<%= s.id %>?_method=DELETE" method="POST">
+                            <button class="btn btn-secondary" type="submit">Delete</button>
+                        </form>
+
+                        <a href="/skills/<%= s.id %>/edit">
+                            <button style="align-self:flex-end" class="btn btn-secondary" type="button">Edit</button>
+                        </a>
+                    </div>
+            </div>
+
+        </div>
+        <% }); %>
+
+            <%- include('../partials/footer') %>
